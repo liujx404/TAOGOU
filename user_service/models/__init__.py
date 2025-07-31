@@ -33,3 +33,5 @@ AsyncSessionFactory = sessionmaker(
 
 #所有的模型都要继承这个Base类
 Base = declarative_base()
+
+from . import user
