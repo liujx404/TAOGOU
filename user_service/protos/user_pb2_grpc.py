@@ -75,6 +75,11 @@ class UserStub(object):
                 request_serializer=user__pb2.VerfyUserRequest.SerializeToString,
                 response_deserializer=user__pb2.UserInfoResponse.FromString,
                 _registered_method=True)
+        self.GetOrCreateUserByMobile = channel.unary_unary(
+                '/User/GetOrCreateUserByMobile',
+                request_serializer=user__pb2.MobileRequest.SerializeToString,
+                response_deserializer=user__pb2.UserInfoResponse.FromString,
+                _registered_method=True)
 
 
 class UserServicer(object):
@@ -128,6 +133,12 @@ class UserServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetOrCreateUserByMobile(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_UserServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -169,6 +180,11 @@ def add_UserServicer_to_server(servicer, server):
             'VerifyUser': grpc.unary_unary_rpc_method_handler(
                     servicer.VerifyUser,
                     request_deserializer=user__pb2.VerfyUserRequest.FromString,
+                    response_serializer=user__pb2.UserInfoResponse.SerializeToString,
+            ),
+            'GetOrCreateUserByMobile': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOrCreateUserByMobile,
+                    request_deserializer=user__pb2.MobileRequest.FromString,
                     response_serializer=user__pb2.UserInfoResponse.SerializeToString,
             ),
     }
@@ -387,6 +403,33 @@ class User(object):
             target,
             '/User/VerifyUser',
             user__pb2.VerfyUserRequest.SerializeToString,
+            user__pb2.UserInfoResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetOrCreateUserByMobile(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/User/GetOrCreateUserByMobile',
+            user__pb2.MobileRequest.SerializeToString,
             user__pb2.UserInfoResponse.FromString,
             options,
             channel_credentials,

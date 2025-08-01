@@ -10,6 +10,7 @@ service User {
     rpc UpdatePassword(PasswordRequest) returns (google.protobuf.Empty);
     rpc GetUserList(PageRequest) returns (UserListResponse);
     rpc VerifyUser(VerfyUserRequest) returns (UserInfoResponse);
+    rpc GetOrCreateUserByMobile(MobileRequest) returns (UserInfoResponse);
 }
 message CreateUserRequest {
     string mobile = 1;
