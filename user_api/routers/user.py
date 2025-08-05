@@ -1,18 +1,15 @@
-from fastapi import APIRouter, Depends, HTTPException, Security
+from fastapi import APIRouter, Depends, HTTPException, Security, UploadFile
 from fastapi.security import HTTPAuthorizationCredentials
 import string 
 import random
 import aiohttp  # 导入异步 HTTP 库
-from schemas.response import ResultModule, ResultEnum, LoginedModel, UserModel
+from schemas.response import ResultModule, ResultEnum, LoginedModel, UserModel, UpdatedAvatarModel
 from utils.cache import TLLRedis
 from schemas.request import LoginModel, UpdateUsernameModel, UpdatePasswordModel
-from services.protos import user_pb2, user_pb2_grpc
-import grpc
 from utils.auth import AuthHandler
 from services.user import UserServiceClient
-from utils.status_code import get_http_code
-from services.decroators import grpc_error_handeler
-
+from utils.alyoss import oss_upload_image
+from fastapi import status
 router = APIRouter(prefix="/user")
 ttl_redis = TLLRedis()
 auth_handler = AuthHandler()
@@ -87,7 +84,10 @@ async def get_user_info(user_id: int = Depends(auth_handler.auth_access_dependen
     user = await user_service_client.get_user_by_id(user_id)
     return user
 
-
-
-
-
+@router.put('/update/avatar', response_model=UpdatedAvatarModel)
+async def update_avatar(file: UploadFile, user_id: int = Depends(auth_handler.auth_access_dependency)):
+    file_url = await oss_upload_image(file)
+    if not file_url:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="头像上传失败")
+    await user_service_client.update_avatar(user_id, file_url)
+    return UpdatedAvatarModel(file_url=file_url)

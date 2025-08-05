@@ -40,7 +40,7 @@ class UserServiceClient(metaclass=SingletonMeta):
     async def update_avatar(self, user_id: str, avatar: str):
         async with UserStub() as stub:
             request = user_pb2.AvatarRequest(id=user_id, avatar=avatar)
-            await stub.UpdateAvatar(request)
+            await stub.UpdateUserAvatar(request)
 
     @grpc_error_handeler
     async def get_user_by_id(self, user_id: int):

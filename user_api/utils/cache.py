@@ -1,6 +1,6 @@
 from .single import SingletonMeta
 import redis.asyncio as redis
-from . import settings
+import settings
 
 
 class TLLRedis(metaclass=SingletonMeta):
