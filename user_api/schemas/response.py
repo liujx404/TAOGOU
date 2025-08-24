@@ -1,5 +1,7 @@
 from pydantic import BaseModel
 from enum import Enum
+from typing import List
+
 
 class ResultEnum(Enum):
     SUCCESS = 1
@@ -23,3 +25,14 @@ class LoginedModel(BaseModel):
 
 class UpdatedAvatarModel(BaseModel):
     file_url: str
+
+class AddressModel(BaseModel):
+    id: int
+    real_name: str
+    mobile: str
+    region: str
+    detail: str 
+
+
+class AddressListModel(BaseModel):
+    addresses: List[AddressModel]

@@ -2262,3 +2262,2281 @@ Traceback (most recent call last):
           └ <services.protos.user_pb2_grpc.UserStub object at 0x708aa8542950>
 
 AttributeError: 'UserStub' object has no attribute 'UpdateAvatar'
+2025-08-07 16:18:40.496 | ERROR    | hooks.middlewares:log_middleware:11 - 发送异常了：
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+           │    └ <function MemoryObjectReceiveStream.receive_nowait at 0x7e7e37af9b20>
+           └ MemoryObjectReceiveStream(_state=MemoryObjectStreamState(max_buffer_size=0, buffer=deque([]), open_send_channels=0, open_rece...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+          └ <class 'anyio.WouldBlock'>
+
+anyio.WouldBlock
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+           └ MemoryObjectItemReceiver(task_info=AsyncIOTaskInfo(id=139080512920000, name='Task-7'), item=None)
+
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 151, in call_next
+    message = await recv_stream.receive()
+                    │           └ <function MemoryObjectReceiveStream.receive at 0x7e7e37af9bc0>
+                    └ MemoryObjectReceiveStream(_state=MemoryObjectStreamState(max_buffer_size=0, buffer=deque([]), open_send_channels=0, open_rece...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+          └ <class 'anyio.EndOfStream'>
+
+anyio.EndOfStream
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 7
+               └ <function _main at 0x7e7e393ea520>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 133, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x7e7e394fc860>
+           └ <SpawnProcess name='SpawnProcess-8' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x7e7e394f3d80>
+    └ <SpawnProcess name='SpawnProcess-8' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7e7e389be4d0>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-8' parent=783614 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-8' parent=783614 started>
+    │    └ <function subprocess_started at 0x7e7e3881b880>
+    └ <SpawnProcess name='SpawnProcess-8' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x7e7e3889a3d0>>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │       │   │    └ <function Server.serve at 0x7e7e3881a520>
+           │       │   └ <uvicorn.server.Server object at 0x7e7e3889a3d0>
+           │       └ <function run at 0x7e7e38b0bba0>
+           └ <module 'asyncio' from '/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/__init__.py'>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7e7e38856980>
+           │      └ <function Runner.run at 0x7e7e38b7fd80>
+           └ <asyncio.runners.Runner object at 0x7e7e38899990>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uv...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7e7e38b7d940>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7e7e38899990>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 637, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7e7e38b7d8a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 604, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7e7e38b7f6a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7e7e38b285e0>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x7e7e3889b8d0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e7e2ff0db50>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e7e2ff0db50>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+                 │    └ <fastapi.applications.FastAPI object at 0x7e7e3793a690>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x7e7e3889b8d0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e7e2ff0db50>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e7e2ff0db50>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e7e2ff0db50>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e7e2ff0db50>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7e7e348d90d0>
+          └ <fastapi.applications.FastAPI object at 0x7e7e3793a690>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x7e7e3493c680>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e7e2ff0db50>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7e7e348d8590>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7e7e348d90d0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 184, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7e7e3493d580>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7e7e34935610>
+                     │    └ <function log_middleware at 0x7e7e38615620>
+                     └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7e7e348d8590>
+
+> File "/home/liujx/PROJ/taolele/user_api/hooks/middlewares.py", line 7, in log_middleware
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7e7e34935610>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7e7e3493d580>
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 159, in call_next
+    raise app_exc
+          └ AttributeError("module 'services.protos.user_pb2_grpc' has no attribute 'AddressStub'")
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7e7e3493c540>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493d760>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7e7e348d3b10>
+          └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7e7e348d8590>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7e7e3493c540>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493d760>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    │    └ <starlette.requests.Request object at 0x7e7e2ff0e0d0>
+          │                            │    └ <fastapi.routing.APIRouter object at 0x7e7e348e3510>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7e7e348d3b10>
+          └ <function wrap_app_handling_exceptions at 0x7e7e37a12660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e7e2ff0a7a0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493d760>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <fastapi.routing.APIRouter object at 0x7e7e348e3510>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e7e2ff0a7a0>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493d760>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7e7e348e3510>>
+          └ <fastapi.routing.APIRouter object at 0x7e7e348e3510>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e7e2ff0a7a0>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493d760>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │     └ <function Route.handle at 0x7e7e37a13c40>
+          └ APIRoute(path='/address/create', name='create_address', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e7e2ff0a7a0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493d760>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <function request_response.<locals>.app at 0x7e7e349087c0>
+          └ APIRoute(path='/address/create', name='create_address', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e7e2ff0a7a0>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493d760>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    └ <starlette.requests.Request object at 0x7e7e2ff0e1d0>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x7e7e2ff0a840>
+          └ <function wrap_app_handling_exceptions at 0x7e7e37a12660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e7e2ff0a980>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493d760>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <function request_response.<locals>.app.<locals>.app at 0x7e7e2ff0a840>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7e7e2ff0e1d0>
+                     └ <function get_request_handler.<locals>.app at 0x7e7e34908180>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 302, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x7e7e39438680>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 213, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'user_id': 1952208313361891328, 'data': CreateAddressModel(realname='tangs', mobile='13870429866', region='北京', detail='afsd...
+                 │         └ <function create_address at 0x7e7e348c28e0>
+                 └ Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[], body_params=[ModelField(field_info=Body(Pydant...
+
+  File "/home/liujx/PROJ/taolele/user_api/routers/address.py", line 20, in create_address
+    address = await address_service_client.create_address(
+                    │                      └ <function AddressServiceClient.create_address at 0x7e7e348c2fc0>
+                    └ <services.address.AddressServiceClient object at 0x7e7e374a0710>
+
+  File "/home/liujx/PROJ/taolele/user_api/services/decroators.py", line 11, in wrapper
+    result = await func(*args, **kwargs)
+                   │     │       └ {'user_id': 1952208313361891328, 'realname': 'tangs', 'mobile': '13870429866', 'region': '北京', 'detail': 'afsdfsdf'}
+                   │     └ (<services.address.AddressServiceClient object at 0x7e7e374a0710>,)
+                   └ <function AddressServiceClient.create_address at 0x7e7e348c2f20>
+
+  File "/home/liujx/PROJ/taolele/user_api/services/address.py", line 30, in create_address
+    async with AddressStub() as stub:
+               └ <class 'services.address.AddressStub'>
+
+  File "/home/liujx/PROJ/taolele/user_api/services/address.py", line 12, in __aenter__
+    self.stub = user_pb2_grpc.AddressStub(self.channel)
+    │           │                         │    └ <grpc.aio._channel.Channel object at 0x7e7e348f5a10>
+    │           │                         └ <services.address.AddressStub object at 0x7e7e348c82d0>
+    │           └ <module 'services.protos.user_pb2_grpc' from '/home/liujx/PROJ/taolele/user_api/services/protos/user_pb2_grpc.py'>
+    └ <services.address.AddressStub object at 0x7e7e348c82d0>
+
+AttributeError: module 'services.protos.user_pb2_grpc' has no attribute 'AddressStub'
+2025-08-07 16:18:51.567 | ERROR    | hooks.middlewares:log_middleware:11 - 发送异常了：
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+           │    └ <function MemoryObjectReceiveStream.receive_nowait at 0x7e7e37af9b20>
+           └ MemoryObjectReceiveStream(_state=MemoryObjectStreamState(max_buffer_size=0, buffer=deque([]), open_send_channels=0, open_rece...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+          └ <class 'anyio.WouldBlock'>
+
+anyio.WouldBlock
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+           └ MemoryObjectItemReceiver(task_info=AsyncIOTaskInfo(id=139080512920000, name='Task-12'), item=None)
+
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 151, in call_next
+    message = await recv_stream.receive()
+                    │           └ <function MemoryObjectReceiveStream.receive at 0x7e7e37af9bc0>
+                    └ MemoryObjectReceiveStream(_state=MemoryObjectStreamState(max_buffer_size=0, buffer=deque([]), open_send_channels=0, open_rece...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+          └ <class 'anyio.EndOfStream'>
+
+anyio.EndOfStream
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 7
+               └ <function _main at 0x7e7e393ea520>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 133, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x7e7e394fc860>
+           └ <SpawnProcess name='SpawnProcess-8' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x7e7e394f3d80>
+    └ <SpawnProcess name='SpawnProcess-8' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7e7e389be4d0>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-8' parent=783614 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-8' parent=783614 started>
+    │    └ <function subprocess_started at 0x7e7e3881b880>
+    └ <SpawnProcess name='SpawnProcess-8' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x7e7e3889a3d0>>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │       │   │    └ <function Server.serve at 0x7e7e3881a520>
+           │       │   └ <uvicorn.server.Server object at 0x7e7e3889a3d0>
+           │       └ <function run at 0x7e7e38b0bba0>
+           └ <module 'asyncio' from '/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/__init__.py'>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7e7e38856980>
+           │      └ <function Runner.run at 0x7e7e38b7fd80>
+           └ <asyncio.runners.Runner object at 0x7e7e38899990>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uv...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7e7e38b7d940>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7e7e38899990>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 637, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7e7e38b7d8a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 604, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7e7e38b7f6a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7e7e38b285e0>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x7e7e3889b8d0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e7e2c653610>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e7e2c653610>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+                 │    └ <fastapi.applications.FastAPI object at 0x7e7e3793a690>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x7e7e3889b8d0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e7e2c653610>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e7e2c653610>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e7e2c653610>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e7e2c653610>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7e7e348d90d0>
+          └ <fastapi.applications.FastAPI object at 0x7e7e3793a690>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x7e7e3888f9c0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e7e2c653610>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7e7e348d8590>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7e7e348d90d0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 184, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7e7e348aa980>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7e7e34937590>
+                     │    └ <function log_middleware at 0x7e7e38615620>
+                     └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7e7e348d8590>
+
+> File "/home/liujx/PROJ/taolele/user_api/hooks/middlewares.py", line 7, in log_middleware
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7e7e34937590>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7e7e348aa980>
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 159, in call_next
+    raise app_exc
+          └ AttributeError("module 'services.protos.user_pb2_grpc' has no attribute 'AddressStub'")
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7e7e3493db20>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493c860>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7e7e348d3b10>
+          └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7e7e348d8590>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7e7e3493db20>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493c860>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    │    └ <starlette.requests.Request object at 0x7e7e34971a50>
+          │                            │    └ <fastapi.routing.APIRouter object at 0x7e7e348e3510>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7e7e348d3b10>
+          └ <function wrap_app_handling_exceptions at 0x7e7e37a12660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e7e2ff216c0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493c860>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <fastapi.routing.APIRouter object at 0x7e7e348e3510>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e7e2ff216c0>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493c860>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7e7e348e3510>>
+          └ <fastapi.routing.APIRouter object at 0x7e7e348e3510>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e7e2ff216c0>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493c860>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │     └ <function Route.handle at 0x7e7e37a13c40>
+          └ APIRoute(path='/address/create', name='create_address', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e7e2ff216c0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493c860>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <function request_response.<locals>.app at 0x7e7e349087c0>
+          └ APIRoute(path='/address/create', name='create_address', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e7e2ff216c0>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493c860>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    └ <starlette.requests.Request object at 0x7e7e2c653b90>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x7e7e2ff21760>
+          └ <function wrap_app_handling_exceptions at 0x7e7e37a12660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e7e2ff21940>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e7e3493c860>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <function request_response.<locals>.app.<locals>.app at 0x7e7e2ff21760>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7e7e2c653b90>
+                     └ <function get_request_handler.<locals>.app at 0x7e7e34908180>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 302, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x7e7e39438680>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 213, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'user_id': 1952208313361891328, 'data': CreateAddressModel(realname='tangs', mobile='13874429866', region='北京', detail='afsd...
+                 │         └ <function create_address at 0x7e7e348c28e0>
+                 └ Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[], body_params=[ModelField(field_info=Body(Pydant...
+
+  File "/home/liujx/PROJ/taolele/user_api/routers/address.py", line 20, in create_address
+    address = await address_service_client.create_address(
+                    │                      └ <function AddressServiceClient.create_address at 0x7e7e348c2fc0>
+                    └ <services.address.AddressServiceClient object at 0x7e7e374a0710>
+
+  File "/home/liujx/PROJ/taolele/user_api/services/decroators.py", line 11, in wrapper
+    result = await func(*args, **kwargs)
+                   │     │       └ {'user_id': 1952208313361891328, 'realname': 'tangs', 'mobile': '13874429866', 'region': '北京', 'detail': 'afsdfsdf'}
+                   │     └ (<services.address.AddressServiceClient object at 0x7e7e374a0710>,)
+                   └ <function AddressServiceClient.create_address at 0x7e7e348c2f20>
+
+  File "/home/liujx/PROJ/taolele/user_api/services/address.py", line 30, in create_address
+    async with AddressStub() as stub:
+               └ <class 'services.address.AddressStub'>
+
+  File "/home/liujx/PROJ/taolele/user_api/services/address.py", line 12, in __aenter__
+    self.stub = user_pb2_grpc.AddressStub(self.channel)
+    │           │                         │    └ <grpc.aio._channel.Channel object at 0x7e7e2c652690>
+    │           │                         └ <services.address.AddressStub object at 0x7e7e2c652910>
+    │           └ <module 'services.protos.user_pb2_grpc' from '/home/liujx/PROJ/taolele/user_api/services/protos/user_pb2_grpc.py'>
+    └ <services.address.AddressStub object at 0x7e7e2c652910>
+
+AttributeError: module 'services.protos.user_pb2_grpc' has no attribute 'AddressStub'
+2025-08-07 16:22:39.829 | ERROR    | hooks.middlewares:log_middleware:11 - 发送异常了：
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 324, in jsonable_encoder
+    data = dict(obj)
+                └ <google._upb._message.Descriptor object at 0x70d07b3f1990>
+
+TypeError: 'google._upb._message.Descriptor' object is not iterable
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 329, in jsonable_encoder
+    data = vars(obj)
+                └ <google._upb._message.Descriptor object at 0x70d07b3f1990>
+
+TypeError: vars() argument must have __dict__ attribute
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 7
+               └ <function _main at 0x70d07ffae520>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 133, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x70d07fec0860>
+           └ <SpawnProcess name='SpawnProcess-17' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x70d0800b3d80>
+    └ <SpawnProcess name='SpawnProcess-17' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x70d07f717ad0>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-17' parent=783614 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-17' parent=783614 started>
+    │    └ <function subprocess_started at 0x70d07f3af880>
+    └ <SpawnProcess name='SpawnProcess-17' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x70d07f42e290>>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │       │   │    └ <function Server.serve at 0x70d07f3ae520>
+           │       │   └ <uvicorn.server.Server object at 0x70d07f42e290>
+           │       └ <function run at 0x70d07f713ba0>
+           └ <module 'asyncio' from '/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/__init__.py'>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x70d07f3ea980>
+           │      └ <function Runner.run at 0x70d07f787d80>
+           └ <asyncio.runners.Runner object at 0x70d07f42d910>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uv...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x70d07f785940>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x70d07f42d910>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 637, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x70d07f7858a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 604, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x70d07f7876a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x70d07f72c5e0>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x70d07f42f710>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x70d07aa9fb50>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x70d07aa9fb50>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+                 │    └ <fastapi.applications.FastAPI object at 0x70d07b3d0390>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x70d07f42f710>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x70d07aa9fb50>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x70d07aa9fb50>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x70d07aa9fb50>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x70d07aa9fb50>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x70d07dcf8e10>
+          └ <fastapi.applications.FastAPI object at 0x70d07b3d0390>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x70d07b3cb560>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x70d07aa9fb50>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x70d07def2490>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x70d07dcf8e10>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 184, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x70d07b445080>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x70d07aa9fe90>
+                     │    └ <function log_middleware at 0x70d07f15d620>
+                     └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x70d07def2490>
+
+> File "/home/liujx/PROJ/taolele/user_api/hooks/middlewares.py", line 7, in log_middleware
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x70d07aa9fe90>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x70d07b445080>
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 159, in call_next
+    raise app_exc
+          └ ValueError([TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dic...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x70d07aa9be20>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x70d07b445ee0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x70d07b3e8950>
+          └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x70d07def2490>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x70d07aa9be20>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x70d07b445ee0>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    │    └ <starlette.requests.Request object at 0x70d07aaa8290>
+          │                            │    └ <fastapi.routing.APIRouter object at 0x70d07b3ebd50>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x70d07b3e8950>
+          └ <function wrap_app_handling_exceptions at 0x70d07e5a6660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x70d07aa9b920>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x70d07b445ee0>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <fastapi.routing.APIRouter object at 0x70d07b3ebd50>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x70d07aa9b920>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x70d07b445ee0>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x70d07b3ebd50>>
+          └ <fastapi.routing.APIRouter object at 0x70d07b3ebd50>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x70d07aa9b920>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x70d07b445ee0>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │     └ <function Route.handle at 0x70d07e5a7c40>
+          └ APIRoute(path='/address/create', name='create_address', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x70d07aa9b920>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x70d07b445ee0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <function request_response.<locals>.app at 0x70d07b419e40>
+          └ APIRoute(path='/address/create', name='create_address', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x70d07aa9b920>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x70d07b445ee0>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    └ <starlette.requests.Request object at 0x70d07aaa8350>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x70d07aa9b9c0>
+          └ <function wrap_app_handling_exceptions at 0x70d07e5a6660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x70d07aa9bb00>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x70d07b445ee0>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <function request_response.<locals>.app.<locals>.app at 0x70d07aa9b9c0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x70d07aaa8350>
+                     └ <function get_request_handler.<locals>.app at 0x70d07b419ee0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 328, in app
+    content = await serialize_response(
+                    └ <function serialize_response at 0x70d07ef6ca40>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 202, in serialize_response
+    return jsonable_encoder(response_content)
+           │                └ id: "d37d7077fa55498c9df7a50d860b379a"
+           │                  realname: "tangs"
+           │                  mobile: "13874429866"
+           │                  region: "北京"
+           │                  detail: "afsdfsdf"
+           │                  
+           └ <function jsonable_encoder at 0x70d07e5a5da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 333, in jsonable_encoder
+    return jsonable_encoder(
+           └ <function jsonable_encoder at 0x70d07e5a5da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 333, in jsonable_encoder
+    return jsonable_encoder(
+           └ <function jsonable_encoder at 0x70d07e5a5da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 289, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+                    └ <function jsonable_encoder at 0x70d07e5a5da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 332, in jsonable_encoder
+    raise ValueError(errors) from e
+                     └ [TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dict__ attribu...
+
+ValueError: [TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2025-08-07 16:27:13.817 | ERROR    | hooks.middlewares:log_middleware:11 - 发送异常了：
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 324, in jsonable_encoder
+    data = dict(obj)
+                └ <google._upb._message.Descriptor object at 0x7c7aa5bf5ad0>
+
+TypeError: 'google._upb._message.Descriptor' object is not iterable
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 329, in jsonable_encoder
+    data = vars(obj)
+                └ <google._upb._message.Descriptor object at 0x7c7aa5bf5ad0>
+
+TypeError: vars() argument must have __dict__ attribute
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 7
+               └ <function _main at 0x7c7aaa7ae520>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 133, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x7c7aaa6c0860>
+           └ <SpawnProcess name='SpawnProcess-23' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x7c7aaa8b3d80>
+    └ <SpawnProcess name='SpawnProcess-23' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7c7aa9f17ad0>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-23' parent=783614 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-23' parent=783614 started>
+    │    └ <function subprocess_started at 0x7c7aa9bb7880>
+    └ <SpawnProcess name='SpawnProcess-23' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x7c7aa9c36290>>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │       │   │    └ <function Server.serve at 0x7c7aa9bb6520>
+           │       │   └ <uvicorn.server.Server object at 0x7c7aa9c36290>
+           │       └ <function run at 0x7c7aa9f13ba0>
+           └ <module 'asyncio' from '/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/__init__.py'>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7c7aa9bf2980>
+           │      └ <function Runner.run at 0x7c7aa9f87d80>
+           └ <asyncio.runners.Runner object at 0x7c7aa9c35910>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uv...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7c7aa9f85940>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7c7aa9c35910>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 637, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7c7aa9f858a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 604, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7c7aa9f876a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7c7aa9f2c5e0>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x7c7aa9c37710>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7c7aa52a20d0>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7c7aa52a20d0>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+                 │    └ <fastapi.applications.FastAPI object at 0x7c7aa89ab010>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x7c7aa9c37710>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7c7aa52a20d0>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7c7aa52a20d0>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7c7aa52a20d0>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7c7aa52a20d0>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7c7aa5c145d0>
+          └ <fastapi.applications.FastAPI object at 0x7c7aa89ab010>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x7c7aa5c44f40>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7c7aa52a20d0>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7c7aa784afd0>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7c7aa5c145d0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 184, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7c7aa5c45ee0>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7c7aa52a2350>
+                     │    └ <function log_middleware at 0x7c7aa9961620>
+                     └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7c7aa784afd0>
+
+> File "/home/liujx/PROJ/taolele/user_api/hooks/middlewares.py", line 7, in log_middleware
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7c7aa52a2350>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7c7aa5c45ee0>
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 159, in call_next
+    raise app_exc
+          └ ValueError([TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dic...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7c7aa9c2bb00>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7c7aa5c44cc0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7c7aa5bee1d0>
+          └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7c7aa784afd0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7c7aa9c2bb00>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7c7aa5c44cc0>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    │    └ <starlette.requests.Request object at 0x7c7aa52a26d0>
+          │                            │    └ <fastapi.routing.APIRouter object at 0x7c7aa5bd43d0>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7c7aa5bee1d0>
+          └ <function wrap_app_handling_exceptions at 0x7c7aa8d6e660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7c7aa529ef20>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7c7aa5c44cc0>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <fastapi.routing.APIRouter object at 0x7c7aa5bd43d0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7c7aa529ef20>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7c7aa5c44cc0>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7c7aa5bd43d0>>
+          └ <fastapi.routing.APIRouter object at 0x7c7aa5bd43d0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7c7aa529ef20>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7c7aa5c44cc0>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │     └ <function Route.handle at 0x7c7aa8d6fc40>
+          └ APIRoute(path='/address/create', name='create_address', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7c7aa529ef20>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7c7aa5c44cc0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <function request_response.<locals>.app at 0x7c7aa5c19ee0>
+          └ APIRoute(path='/address/create', name='create_address', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7c7aa529ef20>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7c7aa5c44cc0>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    └ <starlette.requests.Request object at 0x7c7aa52a2850>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x7c7aa529efc0>
+          └ <function wrap_app_handling_exceptions at 0x7c7aa8d6e660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7c7aa529f100>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7c7aa5c44cc0>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <function request_response.<locals>.app.<locals>.app at 0x7c7aa529efc0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7c7aa52a2850>
+                     └ <function get_request_handler.<locals>.app at 0x7c7aa5c19f80>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 328, in app
+    content = await serialize_response(
+                    └ <function serialize_response at 0x7c7aa9770a40>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 202, in serialize_response
+    return jsonable_encoder(response_content)
+           │                └ id: "7eac18d38961482c84b8cf46688025e9"
+           │                  realname: "tangs"
+           │                  mobile: "13874429866"
+           │                  region: "北京"
+           │                  detail: "afsdfsdf"
+           │                  
+           └ <function jsonable_encoder at 0x7c7aa8d6dda0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 333, in jsonable_encoder
+    return jsonable_encoder(
+           └ <function jsonable_encoder at 0x7c7aa8d6dda0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 333, in jsonable_encoder
+    return jsonable_encoder(
+           └ <function jsonable_encoder at 0x7c7aa8d6dda0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 289, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+                    └ <function jsonable_encoder at 0x7c7aa8d6dda0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 332, in jsonable_encoder
+    raise ValueError(errors) from e
+                     └ [TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dict__ attribu...
+
+ValueError: [TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2025-08-07 16:30:15.011 | ERROR    | hooks.middlewares:log_middleware:11 - 发送异常了：
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 324, in jsonable_encoder
+    data = dict(obj)
+                └ <google._upb._message.Descriptor object at 0x7620858e18a0>
+
+TypeError: 'google._upb._message.Descriptor' object is not iterable
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 329, in jsonable_encoder
+    data = vars(obj)
+                └ <google._upb._message.Descriptor object at 0x7620858e18a0>
+
+TypeError: vars() argument must have __dict__ attribute
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 7
+               └ <function _main at 0x76208a3ea520>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 133, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x76208a4fc860>
+           └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x76208a4f3d80>
+    └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7620899be590>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+    │    └ <function subprocess_started at 0x76208981b880>
+    └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x76208989a550>>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │       │   │    └ <function Server.serve at 0x76208981a520>
+           │       │   └ <uvicorn.server.Server object at 0x76208989a550>
+           │       └ <function run at 0x762089b0bba0>
+           └ <module 'asyncio' from '/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/__init__.py'>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x762089856980>
+           │      └ <function Runner.run at 0x762089b7fd80>
+           └ <asyncio.runners.Runner object at 0x762089888490>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uv...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x762089b7d940>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x762089888490>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 637, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x762089b7d8a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 604, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x762089b7f6a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x762089b285e0>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x762089888590>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x762084f91f50>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x762084f91f50>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+                 │    └ <fastapi.applications.FastAPI object at 0x76208896ae90>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x762089888590>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x762084f91f50>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x762084f91f50>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x762084f91f50>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x762084f91f50>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7620858d6450>
+          └ <fastapi.applications.FastAPI object at 0x76208896ae90>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x76208988f9c0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x762084f91f50>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7620858d61d0>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7620858d6450>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 184, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x762084f839c0>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x762084f92550>
+                     │    └ <function log_middleware at 0x762089629620>
+                     └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7620858d61d0>
+
+> File "/home/liujx/PROJ/taolele/user_api/hooks/middlewares.py", line 7, in log_middleware
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x762084f92550>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x762084f839c0>
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 159, in call_next
+    raise app_exc
+          └ ValueError([TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dic...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x762084f83740>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f83a60>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7620858d56d0>
+          └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7620858d61d0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x762084f83740>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f83a60>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    │    └ <starlette.requests.Request object at 0x762084f92990>
+          │                            │    └ <fastapi.routing.APIRouter object at 0x7620858cf610>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7620858d56d0>
+          └ <function wrap_app_handling_exceptions at 0x762088a42660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f94220>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f83a60>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <fastapi.routing.APIRouter object at 0x7620858cf610>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f94220>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f83a60>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7620858cf610>>
+          └ <fastapi.routing.APIRouter object at 0x7620858cf610>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f94220>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f83a60>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │     └ <function Route.handle at 0x762088a43c40>
+          └ APIRoute(path='/address/create', name='create_address', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f94220>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f83a60>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <function request_response.<locals>.app at 0x762085901ee0>
+          └ APIRoute(path='/address/create', name='create_address', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f94220>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f83a60>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    └ <starlette.requests.Request object at 0x762084f92a90>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x762084f94400>
+          └ <function wrap_app_handling_exceptions at 0x762088a42660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f94540>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f83a60>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <function request_response.<locals>.app.<locals>.app at 0x762084f94400>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x762084f92a90>
+                     └ <function get_request_handler.<locals>.app at 0x762085901f80>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 328, in app
+    content = await serialize_response(
+                    └ <function serialize_response at 0x762088f84a40>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 202, in serialize_response
+    return jsonable_encoder(response_content)
+           │                └ id: "62082c2df63845e7a590321fbda19c08"
+           │                  realname: "tangs"
+           │                  mobile: "13874429866"
+           │                  region: "北京"
+           │                  detail: "afsdfsdf"
+           │                  
+           └ <function jsonable_encoder at 0x762088a41da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 333, in jsonable_encoder
+    return jsonable_encoder(
+           └ <function jsonable_encoder at 0x762088a41da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 333, in jsonable_encoder
+    return jsonable_encoder(
+           └ <function jsonable_encoder at 0x762088a41da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 289, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+                    └ <function jsonable_encoder at 0x762088a41da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 332, in jsonable_encoder
+    raise ValueError(errors) from e
+                     └ [TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dict__ attribu...
+
+ValueError: [TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2025-08-07 16:30:33.994 | ERROR    | hooks.middlewares:log_middleware:11 - 发送异常了：
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 324, in jsonable_encoder
+    data = dict(obj)
+                └ <google._upb._message.Descriptor object at 0x7620858e18a0>
+
+TypeError: 'google._upb._message.Descriptor' object is not iterable
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 329, in jsonable_encoder
+    data = vars(obj)
+                └ <google._upb._message.Descriptor object at 0x7620858e18a0>
+
+TypeError: vars() argument must have __dict__ attribute
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 7
+               └ <function _main at 0x76208a3ea520>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 133, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x76208a4fc860>
+           └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x76208a4f3d80>
+    └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7620899be590>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+    │    └ <function subprocess_started at 0x76208981b880>
+    └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x76208989a550>>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │       │   │    └ <function Server.serve at 0x76208981a520>
+           │       │   └ <uvicorn.server.Server object at 0x76208989a550>
+           │       └ <function run at 0x762089b0bba0>
+           └ <module 'asyncio' from '/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/__init__.py'>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x762089856980>
+           │      └ <function Runner.run at 0x762089b7fd80>
+           └ <asyncio.runners.Runner object at 0x762089888490>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uv...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x762089b7d940>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x762089888490>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 637, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x762089b7d8a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 604, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x762089b7f6a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x762089b285e0>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x762089888590>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7620846f8dd0>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7620846f8dd0>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+                 │    └ <fastapi.applications.FastAPI object at 0x76208896ae90>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x762089888590>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7620846f8dd0>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7620846f8dd0>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7620846f8dd0>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7620846f8dd0>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7620858d6450>
+          └ <fastapi.applications.FastAPI object at 0x76208896ae90>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x76208610a0c0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7620846f8dd0>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7620858d61d0>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7620858d6450>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 184, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x762084f83ec0>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7620846f9090>
+                     │    └ <function log_middleware at 0x762089629620>
+                     └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7620858d61d0>
+
+> File "/home/liujx/PROJ/taolele/user_api/hooks/middlewares.py", line 7, in log_middleware
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7620846f9090>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x762084f83ec0>
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 159, in call_next
+    raise app_exc
+          └ ValueError([TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dic...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x762084f95d00>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f94900>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7620858d56d0>
+          └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7620858d61d0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x762084f95d00>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f94900>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    │    └ <starlette.requests.Request object at 0x76208592be50>
+          │                            │    └ <fastapi.routing.APIRouter object at 0x7620858cf610>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7620858d56d0>
+          └ <function wrap_app_handling_exceptions at 0x762088a42660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f95da0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f94900>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <fastapi.routing.APIRouter object at 0x7620858cf610>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f95da0>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f94900>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7620858cf610>>
+          └ <fastapi.routing.APIRouter object at 0x7620858cf610>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f95da0>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f94900>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │     └ <function Route.handle at 0x762088a43c40>
+          └ APIRoute(path='/address/create', name='create_address', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f95da0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f94900>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <function request_response.<locals>.app at 0x762085901ee0>
+          └ APIRoute(path='/address/create', name='create_address', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f95da0>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f94900>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    └ <starlette.requests.Request object at 0x7620846f9450>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x762084f95e40>
+          └ <function wrap_app_handling_exceptions at 0x762088a42660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f95f80>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f94900>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <function request_response.<locals>.app.<locals>.app at 0x762084f95e40>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7620846f9450>
+                     └ <function get_request_handler.<locals>.app at 0x762085901f80>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 328, in app
+    content = await serialize_response(
+                    └ <function serialize_response at 0x762088f84a40>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 202, in serialize_response
+    return jsonable_encoder(response_content)
+           │                └ id: "4810fda9be2e450e9ad9501f9882ac96"
+           │                  realname: "tangs"
+           │                  mobile: "13874429866"
+           │                  region: "北京"
+           │                  detail: "afsdfsdf"
+           │                  
+           └ <function jsonable_encoder at 0x762088a41da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 333, in jsonable_encoder
+    return jsonable_encoder(
+           └ <function jsonable_encoder at 0x762088a41da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 333, in jsonable_encoder
+    return jsonable_encoder(
+           └ <function jsonable_encoder at 0x762088a41da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 289, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+                    └ <function jsonable_encoder at 0x762088a41da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 332, in jsonable_encoder
+    raise ValueError(errors) from e
+                     └ [TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dict__ attribu...
+
+ValueError: [TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2025-08-07 16:30:38.702 | ERROR    | hooks.middlewares:log_middleware:11 - 发送异常了：
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 324, in jsonable_encoder
+    data = dict(obj)
+                └ <google._upb._message.Descriptor object at 0x7620858e18a0>
+
+TypeError: 'google._upb._message.Descriptor' object is not iterable
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 329, in jsonable_encoder
+    data = vars(obj)
+                └ <google._upb._message.Descriptor object at 0x7620858e18a0>
+
+TypeError: vars() argument must have __dict__ attribute
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 7
+               └ <function _main at 0x76208a3ea520>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 133, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x76208a4fc860>
+           └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x76208a4f3d80>
+    └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7620899be590>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+    │    └ <function subprocess_started at 0x76208981b880>
+    └ <SpawnProcess name='SpawnProcess-28' parent=783614 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x76208989a550>>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │       │   │    └ <function Server.serve at 0x76208981a520>
+           │       │   └ <uvicorn.server.Server object at 0x76208989a550>
+           │       └ <function run at 0x762089b0bba0>
+           └ <module 'asyncio' from '/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/__init__.py'>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x762089856980>
+           │      └ <function Runner.run at 0x762089b7fd80>
+           └ <asyncio.runners.Runner object at 0x762089888490>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uv...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x762089b7d940>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x762089888490>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 637, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x762089b7d8a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 604, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x762089b7f6a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x762089b285e0>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x762089888590>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7620846f89d0>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7620846f89d0>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+                 │    └ <fastapi.applications.FastAPI object at 0x76208896ae90>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x762089888590>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7620846f89d0>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7620846f89d0>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7620846f89d0>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7620846f89d0>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7620858d6450>
+          └ <fastapi.applications.FastAPI object at 0x76208896ae90>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x76208615e020>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7620846f89d0>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7620858d61d0>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7620858d6450>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 184, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x762084f967a0>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7620846f8650>
+                     │    └ <function log_middleware at 0x762089629620>
+                     └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7620858d61d0>
+
+> File "/home/liujx/PROJ/taolele/user_api/hooks/middlewares.py", line 7, in log_middleware
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7620846f8650>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x762084f967a0>
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 159, in call_next
+    raise app_exc
+          └ ValueError([TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dic...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x762084f96520>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f96200>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7620858d56d0>
+          └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7620858d61d0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x762084f96520>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f96200>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    │    └ <starlette.requests.Request object at 0x7620846fb210>
+          │                            │    └ <fastapi.routing.APIRouter object at 0x7620858cf610>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7620858d56d0>
+          └ <function wrap_app_handling_exceptions at 0x762088a42660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f96840>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f96200>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <fastapi.routing.APIRouter object at 0x7620858cf610>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f96840>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f96200>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7620858cf610>>
+          └ <fastapi.routing.APIRouter object at 0x7620858cf610>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f96840>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f96200>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │     └ <function Route.handle at 0x762088a43c40>
+          └ APIRoute(path='/address/create', name='create_address', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f96840>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f96200>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <function request_response.<locals>.app at 0x762085901ee0>
+          └ APIRoute(path='/address/create', name='create_address', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f96840>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f96200>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    └ <starlette.requests.Request object at 0x7620846fb390>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x762084f968e0>
+          └ <function wrap_app_handling_exceptions at 0x762088a42660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x762084f96a20>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x762084f96200>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <function request_response.<locals>.app.<locals>.app at 0x762084f968e0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7620846fb390>
+                     └ <function get_request_handler.<locals>.app at 0x762085901f80>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 328, in app
+    content = await serialize_response(
+                    └ <function serialize_response at 0x762088f84a40>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 202, in serialize_response
+    return jsonable_encoder(response_content)
+           │                └ id: "387945a7480a4ed7b32622537824c5d5"
+           │                  realname: "tangs"
+           │                  mobile: "13874429866"
+           │                  region: "北京"
+           │                  detail: "afsdfsdf"
+           │                  
+           └ <function jsonable_encoder at 0x762088a41da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 333, in jsonable_encoder
+    return jsonable_encoder(
+           └ <function jsonable_encoder at 0x762088a41da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 333, in jsonable_encoder
+    return jsonable_encoder(
+           └ <function jsonable_encoder at 0x762088a41da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 289, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+                    └ <function jsonable_encoder at 0x762088a41da0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/encoders.py", line 332, in jsonable_encoder
+    raise ValueError(errors) from e
+                     └ [TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dict__ attribu...
+
+ValueError: [TypeError("'google._upb._message.Descriptor' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2025-08-09 23:53:48.101 | INFO     | main:root:15 - rizhi
+2025-08-09 23:53:52.954 | INFO     | main:root:15 - rizhi
+2025-08-10 14:35:44.425 | ERROR    | utils.tll_consul:get_zerotier_ip:26 - 获取 ZeroTier IP 失败，使用默认逻辑: [Errno 19] No such device
+2025-08-10 14:36:12.252 | ERROR    | utils.tll_consul:get_zerotier_ip:26 - 获取 ZeroTier IP 失败，使用默认逻辑: [Errno 19] No such device
+2025-08-10 14:36:19.892 | ERROR    | utils.tll_consul:get_zerotier_ip:26 - 获取 ZeroTier IP 失败，使用默认逻辑: [Errno 19] No such device
+2025-08-10 14:37:09.638 | INFO     | utils.tll_consul:unregister_service:77 - 服务注销成功
+2025-08-10 14:37:11.105 | INFO     | utils.tll_consul:unregister_service:77 - 服务注销成功
+2025-08-10 14:37:47.983 | INFO     | utils.tll_consul:unregister_service:77 - 服务注销成功
+2025-08-10 14:37:48.459 | INFO     | utils.tll_consul:register_service:62 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 14:37:56.968 | INFO     | utils.tll_consul:unregister_service:79 - 服务注销成功
+2025-08-10 14:37:57.466 | INFO     | utils.tll_consul:register_service:62 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 14:37:57.581 | INFO     | utils.tll_consul:register_service:74 - 服务注册到Consul成功
+2025-08-10 14:42:23.036 | INFO     | utils.tll_consul:register_service:62 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 14:42:23.184 | INFO     | utils.tll_consul:register_service:74 - 服务注册到Consul成功
+2025-08-10 14:43:13.490 | INFO     | utils.tll_consul:unregister_service:80 - 服务注销成功
+2025-08-10 14:43:13.986 | INFO     | utils.tll_consul:register_service:62 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 14:43:14.093 | INFO     | utils.tll_consul:register_service:74 - 服务注册到Consul成功
+2025-08-10 14:43:29.915 | INFO     | utils.tll_consul:unregister_service:80 - 服务注销成功
+2025-08-10 14:43:30.458 | INFO     | utils.tll_consul:register_service:62 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 14:43:30.580 | INFO     | utils.tll_consul:register_service:74 - 服务注册到Consul成功
+2025-08-10 14:43:44.863 | INFO     | utils.tll_consul:unregister_service:80 - 服务注销成功
+2025-08-10 16:23:13.991 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:23:14.112 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:25:44.150 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:25:44.268 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:27:11.487 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:27:11.597 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:27:13.884 | INFO     | utils.tll_consul:unregister_service:118 - 服务注销成功
+2025-08-10 16:27:14.406 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:27:14.520 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:27:16.385 | INFO     | utils.tll_consul:unregister_service:118 - 服务注销成功
+2025-08-10 16:27:16.898 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:27:17.014 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:27:18.874 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:27:18.983 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:27:22.918 | INFO     | utils.tll_consul:unregister_service:118 - 服务注销成功
+2025-08-10 16:27:23.432 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:27:23.585 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:30:54.346 | ERROR    | hooks.middlewares:log_middleware:11 - 发送异常了：
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+           │    └ <function MemoryObjectReceiveStream.receive_nowait at 0x7e1915685b20>
+           └ MemoryObjectReceiveStream(_state=MemoryObjectStreamState(max_buffer_size=0, buffer=deque([]), open_send_channels=0, open_rece...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+          └ <class 'anyio.WouldBlock'>
+
+anyio.WouldBlock
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+           └ MemoryObjectItemReceiver(task_info=AsyncIOTaskInfo(id=138646143425344, name='Task-144'), item=None)
+
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 151, in call_next
+    message = await recv_stream.receive()
+                    │           └ <function MemoryObjectReceiveStream.receive at 0x7e1915685bc0>
+                    └ MemoryObjectReceiveStream(_state=MemoryObjectStreamState(max_buffer_size=0, buffer=deque([]), open_send_channels=0, open_rece...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+          └ <class 'anyio.EndOfStream'>
+
+anyio.EndOfStream
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 7
+               └ <function _main at 0x7e1916fae520>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 133, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x7e1916ec0860>
+           └ <SpawnProcess name='SpawnProcess-7' parent=1972912 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x7e19170b3d80>
+    └ <SpawnProcess name='SpawnProcess-7' parent=1972912 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7e19163d37d0>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-7' parent=1972912 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-7' parent=1972912 started>
+    │    └ <function subprocess_started at 0x7e19163b7880>
+    └ <SpawnProcess name='SpawnProcess-7' parent=1972912 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x7e1916436410>>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │       │   │    └ <function Server.serve at 0x7e19163b6520>
+           │       │   └ <uvicorn.server.Server object at 0x7e1916436410>
+           │       └ <function run at 0x7e1916713ba0>
+           └ <module 'asyncio' from '/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/__init__.py'>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7e19163f2980>
+           │      └ <function Runner.run at 0x7e1916787d80>
+           └ <asyncio.runners.Runner object at 0x7e1916435a50>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uv...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7e1916785940>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7e1916435a50>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 637, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7e19167858a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 604, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7e19167876a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7e191672c5e0>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x7e1916437890>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e191225bdd0>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e191225bdd0>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+                 │    └ <fastapi.applications.FastAPI object at 0x7e19121a9250>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x7e1916437890>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e191225bdd0>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e191225bdd0>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e191225bdd0>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e191225bdd0>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7e19121e3090>
+          └ <fastapi.applications.FastAPI object at 0x7e19121a9250>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x7e19118a5e40>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7e191225bdd0>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7e19121da590>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7e19121e3090>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 184, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7e19118a5940>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7e19122589d0>
+                     │    └ <function log_middleware at 0x7e1914b84180>
+                     └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7e19121da590>
+
+> File "/home/liujx/PROJ/taolele/user_api/hooks/middlewares.py", line 7, in log_middleware
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7e19122589d0>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7e19118a5940>
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 159, in call_next
+    raise app_exc
+          └ Exception('No service addresses available')
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7e19118a65c0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e19118a7f60>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7e1912ccb090>
+          └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7e19121da590>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7e19118a65c0>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e19118a7f60>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    │    └ <starlette.requests.Request object at 0x7e191225a610>
+          │                            │    └ <fastapi.routing.APIRouter object at 0x7e1914b8cad0>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7e1912ccb090>
+          └ <function wrap_app_handling_exceptions at 0x7e19155a2660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e19118a6e80>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e19118a7f60>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <fastapi.routing.APIRouter object at 0x7e1914b8cad0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e19118a6e80>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e19118a7f60>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7e1914b8cad0>>
+          └ <fastapi.routing.APIRouter object at 0x7e1914b8cad0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e19118a6e80>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e19118a7f60>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │     └ <function Route.handle at 0x7e19155a3c40>
+          └ APIRoute(path='/user/login', name='login', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e19118a6e80>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e19118a7f60>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <function request_response.<locals>.app at 0x7e19123779c0>
+          └ APIRoute(path='/user/login', name='login', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e19118a6e80>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e19118a7f60>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    └ <starlette.requests.Request object at 0x7e1912259b10>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x7e19118a7b00>
+          └ <function wrap_app_handling_exceptions at 0x7e19155a2660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7e19118a67a0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7e19118a7f60>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <function request_response.<locals>.app.<locals>.app at 0x7e19118a7b00>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7e1912259b10>
+                     └ <function get_request_handler.<locals>.app at 0x7e1912377920>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 302, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x7e1916ff8680>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 213, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'data': LoginModel(mobile='13870429866', code='9283')}
+                 │         └ <function login at 0x7e1912376160>
+                 └ Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[], body_params=[ModelField(field_info=Body(Pydant...
+
+  File "/home/liujx/PROJ/taolele/user_api/routers/user.py", line 49, in login
+    user = await user_service_client.get_or_create_userby_mobile(mobile)
+                 │                   │                           └ '13870429866'
+                 │                   └ <function UserServiceClient.get_or_create_userby_mobile at 0x7e1912d00400>
+                 └ <services.user.UserServiceClient object at 0x7e191218a590>
+
+  File "/home/liujx/PROJ/taolele/user_api/services/decroators.py", line 11, in wrapper
+    result = await func(*args, **kwargs)
+                   │     │       └ {}
+                   │     └ (<services.user.UserServiceClient object at 0x7e191218a590>, '13870429866')
+                   └ <function UserServiceClient.get_or_create_userby_mobile at 0x7e1912d00360>
+
+  File "/home/liujx/PROJ/taolele/user_api/services/user.py", line 32, in get_or_create_userby_mobile
+    async with UserStub() as stub:
+               └ <class 'services.user.UserStub'>
+
+  File "/home/liujx/PROJ/taolele/user_api/services/user.py", line 21, in __aenter__
+    self.channel = grpc.aio.insecure_channel(self.user_service_addr)
+    │              │    │   │                │    └ <property object at 0x7e1913c2e110>
+    │              │    │   │                └ <services.user.UserStub object at 0x7e19121be8d0>
+    │              │    │   └ <function insecure_channel at 0x7e1913c29300>
+    │              │    └ <module 'grpc.aio' from '/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/grpc/aio/__init__.py'>
+    │              └ <module 'grpc' from '/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/grpc/__init__.py'>
+    └ <services.user.UserStub object at 0x7e19121be8d0>
+
+  File "/home/liujx/PROJ/taolele/user_api/services/user.py", line 16, in user_service_addr
+    host, port = tll_consul.get_one_user_service_address()
+                 │          └ <function TLLConsul.get_one_user_service_address at 0x7e1914b840e0>
+                 └ <utils.tll_consul.TLLConsul object at 0x7e1914b77710>
+
+  File "/home/liujx/PROJ/taolele/user_api/utils/tll_consul.py", line 145, in get_one_user_service_address
+    return self.user_service_lb.get_least_used()
+           │    │               └ <function LoadBalancer.get_least_used at 0x7e1914b7fd80>
+           │    └ <utils.tll_consul.LoadBalancer object at 0x7e1914b8c8d0>
+           └ <utils.tll_consul.TLLConsul object at 0x7e1914b77710>
+
+  File "/home/liujx/PROJ/taolele/user_api/utils/tll_consul.py", line 83, in get_least_used
+    raise Exception("No service addresses available")
+
+Exception: No service addresses available
+2025-08-10 16:32:25.771 | INFO     | utils.tll_consul:unregister_service:118 - 服务注销成功
+2025-08-10 16:32:26.619 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:32:26.745 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:32:51.371 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:32:51.481 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:32:51.481 | INFO     | hooks.lifespan:lifespan:26 - 正在获取用户服务地址...
+2025-08-10 16:32:51.559 | ERROR    | utils.tll_consul:fetch_service_addresses:145 - 获取服务地址失败: The DNS query name does not exist: user_service.service.consul.
+2025-08-10 16:33:04.969 | INFO     | utils.tll_consul:unregister_service:118 - 服务注销成功
+2025-08-10 16:33:05.484 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:33:05.601 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:33:05.602 | INFO     | hooks.lifespan:lifespan:26 - 正在获取用户服务地址...
+2025-08-10 16:33:05.653 | ERROR    | utils.tll_consul:fetch_service_addresses:145 - 获取服务地址失败: The DNS query name does not exist: user_service.service.consul.
+2025-08-10 16:34:25.667 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:34:25.837 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:34:25.837 | INFO     | hooks.lifespan:lifespan:26 - 正在获取用户服务地址...
+2025-08-10 16:34:25.895 | ERROR    | utils.tll_consul:fetch_service_addresses:145 - 获取服务地址失败: The DNS query name does not exist: user_service.service.consul.
+2025-08-10 16:37:56.688 | WARNING  | utils.tll_consul:get_one_user_service_address:152 - 无法从负载均衡器获取服务地址: No service addresses available
+2025-08-10 16:37:56.688 | INFO     | utils.tll_consul:get_one_user_service_address:156 - 使用默认用户服务地址: 11.11.11.45:5001
+2025-08-10 16:37:56.688 | INFO     | services.user:user_service_addr:17 - 获取用户服务地址: 11.11.11.45:5001
+2025-08-10 16:37:56.697 | ERROR    | hooks.middlewares:log_middleware:11 - 发送异常了：
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+           │    └ <function MemoryObjectReceiveStream.receive_nowait at 0x7611f7411b20>
+           └ MemoryObjectReceiveStream(_state=MemoryObjectStreamState(max_buffer_size=0, buffer=deque([]), open_send_channels=0, open_rece...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+          └ <class 'anyio.WouldBlock'>
+
+anyio.WouldBlock
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+           └ MemoryObjectItemReceiver(task_info=AsyncIOTaskInfo(id=129819478601024, name='Task-130'), item=None)
+
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 151, in call_next
+    message = await recv_stream.receive()
+                    │           └ <function MemoryObjectReceiveStream.receive at 0x7611f7411bc0>
+                    └ MemoryObjectReceiveStream(_state=MemoryObjectStreamState(max_buffer_size=0, buffer=deque([]), open_send_channels=0, open_rece...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+          └ <class 'anyio.EndOfStream'>
+
+anyio.EndOfStream
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 120, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 7
+               └ <function _main at 0x7611f8bea520>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/spawn.py", line 133, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x7611f8cfc860>
+           └ <SpawnProcess name='SpawnProcess-11' parent=1972912 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x7611f8cf3d80>
+    └ <SpawnProcess name='SpawnProcess-11' parent=1972912 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7611f89d3710>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-11' parent=1972912 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-11' parent=1972912 started>
+    │    └ <function subprocess_started at 0x7611f8013880>
+    └ <SpawnProcess name='SpawnProcess-11' parent=1972912 started>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x7611f8092250>>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │       │   │    └ <function Server.serve at 0x7611f8012520>
+           │       │   └ <uvicorn.server.Server object at 0x7611f8092250>
+           │       └ <function run at 0x7611f8303ba0>
+           └ <module 'asyncio' from '/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/__init__.py'>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7611f804e980>
+           │      └ <function Runner.run at 0x7611f8377d80>
+           └ <asyncio.runners.Runner object at 0x7611f8084290>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uv...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x7611f8375940>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7611f8084290>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 637, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7611f83758a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 604, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7611f83776a0>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7611f83205e0>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=True>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=True>)>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x7611f80936d0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7611f3518f90>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7611f3518f90>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+                 │    └ <fastapi.applications.FastAPI object at 0x7611f7ded090>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x7611f80936d0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7611f3518f90>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7611f3518f90>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7611f3518f90>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7611f3518f90>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7611f658e590>
+          └ <fastapi.applications.FastAPI object at 0x7611f7ded090>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x7611f3517e20>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x7611f3518f90>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7611f658e410>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x7611f658e590>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 184, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7611f3517f60>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7611f351a950>
+                     │    └ <function log_middleware at 0x7611f67f79c0>
+                     └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7611f658e410>
+
+> File "/home/liujx/PROJ/taolele/user_api/hooks/middlewares.py", line 7, in log_middleware
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7611f351a950>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7611f3517f60>
+
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 159, in call_next
+    raise app_exc
+          └ TypeError("HTTPException.__init__() got an unexpected keyword argument 'status'")
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7611f35176a0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7611f3516e80>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7611f3e2a550>
+          └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x7611f658e410>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7611f35176a0>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7611f3516e80>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    │    └ <starlette.requests.Request object at 0x7611f351bb90>
+          │                            │    └ <fastapi.routing.APIRouter object at 0x7611f6804990>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7611f3e2a550>
+          └ <function wrap_app_handling_exceptions at 0x7611f720a660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7611f3517ec0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7611f3516e80>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <fastapi.routing.APIRouter object at 0x7611f6804990>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7611f3517ec0>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7611f3516e80>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7611f6804990>>
+          └ <fastapi.routing.APIRouter object at 0x7611f6804990>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7611f3517ec0>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7611f3516e80>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │     └ <function Route.handle at 0x7611f720bc40>
+          └ APIRoute(path='/user/login', name='login', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7611f3517ec0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7611f3516e80>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │    └ <function request_response.<locals>.app at 0x7611f3fef9c0>
+          └ APIRoute(path='/user/login', name='login', methods=['POST'])
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7611f3517ec0>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7611f3516e80>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          │                            │    └ <starlette.requests.Request object at 0x7611f3519890>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x7611f3517600>
+          └ <function wrap_app_handling_exceptions at 0x7611f720a660>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7611f3517420>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7611f3516e80>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('11.11.11.45', 8000), '...
+          └ <function request_response.<locals>.app.<locals>.app at 0x7611f3517600>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7611f3519890>
+                     └ <function get_request_handler.<locals>.app at 0x7611f3fef7e0>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 302, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x7611f8c38680>
+  File "/home/liujx/miniconda3/envs/py311/lib/python3.11/site-packages/fastapi/routing.py", line 213, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'data': LoginModel(mobile='13870429866', code='9283')}
+                 │         └ <function login at 0x7611f3fee0c0>
+                 └ Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[], body_params=[ModelField(field_info=Body(Pydant...
+
+  File "/home/liujx/PROJ/taolele/user_api/routers/user.py", line 49, in login
+    user = await user_service_client.get_or_create_userby_mobile(mobile)
+                 │                   │                           └ '13870429866'
+                 │                   └ <function UserServiceClient.get_or_create_userby_mobile at 0x7611f4950360>
+                 └ <services.user.UserServiceClient object at 0x7611f3ffe650>
+
+  File "/home/liujx/PROJ/taolele/user_api/services/decroators.py", line 14, in wrapper
+    raise HTTPException(status=get_http_code(e.code()), detail=e.details())
+          │                    └ <function get_http_code at 0x7611f49500e0>
+          └ <class 'fastapi.exceptions.HTTPException'>
+
+TypeError: HTTPException.__init__() got an unexpected keyword argument 'status'
+2025-08-10 16:38:47.440 | INFO     | utils.tll_consul:unregister_service:118 - 服务注销成功
+2025-08-10 16:38:47.962 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:38:48.095 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:38:48.096 | INFO     | hooks.lifespan:lifespan:26 - 正在获取用户服务地址...
+2025-08-10 16:38:48.166 | ERROR    | utils.tll_consul:fetch_service_addresses:145 - 获取服务地址失败: The DNS query name does not exist: user_service.service.consul.
+2025-08-10 16:39:06.332 | INFO     | utils.tll_consul:unregister_service:118 - 服务注销成功
+2025-08-10 16:39:06.828 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:39:06.982 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:39:06.982 | INFO     | hooks.lifespan:lifespan:26 - 正在获取用户服务地址...
+2025-08-10 16:39:07.047 | ERROR    | utils.tll_consul:fetch_service_addresses:145 - 获取服务地址失败: The DNS query name does not exist: user_service.service.consul.
+2025-08-10 16:39:22.280 | WARNING  | utils.tll_consul:get_one_user_service_address:152 - 无法从负载均衡器获取服务地址: No service addresses available
+2025-08-10 16:39:22.280 | INFO     | utils.tll_consul:get_one_user_service_address:156 - 使用默认用户服务地址: 11.11.11.45:5001
+2025-08-10 16:39:22.280 | INFO     | services.user:user_service_addr:17 - 获取用户服务地址: 11.11.11.45:5001
+2025-08-10 16:40:13.296 | INFO     | utils.tll_consul:unregister_service:118 - 服务注销成功
+2025-08-10 16:40:13.772 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:40:13.876 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:40:13.876 | INFO     | hooks.lifespan:lifespan:26 - 正在获取用户服务地址...
+2025-08-10 16:40:13.924 | ERROR    | utils.tll_consul:fetch_service_addresses:146 - 获取服务地址失败: The DNS query name does not exist: user_service.service.consul.
+2025-08-10 16:40:19.869 | WARNING  | utils.tll_consul:get_one_user_service_address:153 - 无法从负载均衡器获取服务地址: No service addresses available
+2025-08-10 16:40:19.869 | INFO     | utils.tll_consul:get_one_user_service_address:157 - 使用默认用户服务地址: 11.11.11.45:5001
+2025-08-10 16:40:19.870 | INFO     | services.user:user_service_addr:17 - 获取用户服务地址: 11.11.11.45:5001
+2025-08-10 16:41:02.408 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:41:02.523 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:41:02.524 | INFO     | hooks.lifespan:lifespan:26 - 正在获取用户服务地址...
+2025-08-10 16:41:02.578 | ERROR    | utils.tll_consul:fetch_service_addresses:145 - 获取服务地址失败: The DNS query name does not exist: user_service.service.consul.
+2025-08-10 16:41:04.152 | INFO     | utils.tll_consul:unregister_service:118 - 服务注销成功
+2025-08-10 16:41:06.057 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:41:06.174 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:41:06.174 | INFO     | hooks.lifespan:lifespan:26 - 正在获取用户服务地址...
+2025-08-10 16:41:06.250 | ERROR    | utils.tll_consul:fetch_service_addresses:145 - 获取服务地址失败: The DNS query name does not exist: user_service.service.consul.
+2025-08-10 16:44:55.802 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:44:55.915 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:44:55.915 | INFO     | hooks.lifespan:lifespan:26 - 正在获取用户服务地址...
+2025-08-10 16:44:56.021 | INFO     | utils.tll_consul:fetch_service_addresses:142 - 从Consul获取到用户服务地址: [{'host': '11.11.11.45', 'port': 44697}]
+2025-08-10 16:45:12.614 | INFO     | services.user:user_service_addr:17 - 获取用户服务地址: 11.11.11.45:44697
+2025-08-10 16:45:31.319 | INFO     | utils.tll_consul:unregister_service:118 - 服务注销成功
+2025-08-10 16:58:04.667 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:58:04.799 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:58:04.799 | INFO     | hooks.lifespan:lifespan:26 - 正在获取用户服务地址...
+2025-08-10 16:58:04.914 | INFO     | utils.tll_consul:fetch_service_addresses:142 - 从Consul获取到用户服务地址: [{'host': '11.11.11.45', 'port': 46863}]
+2025-08-10 16:58:56.352 | INFO     | utils.tll_consul:unregister_service:118 - 服务注销成功
+2025-08-10 16:59:09.526 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 16:59:09.633 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 16:59:09.633 | INFO     | hooks.lifespan:lifespan:26 - 正在获取用户服务地址...
+2025-08-10 16:59:09.765 | INFO     | utils.tll_consul:fetch_service_addresses:142 - 从Consul获取到用户服务地址: [{'host': '11.11.11.45', 'port': 46863}]
+2025-08-10 17:01:08.917 | INFO     | utils.tll_consul:unregister_service:118 - 服务注销成功
+2025-08-10 17:01:09.422 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 17:01:09.548 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 17:01:09.548 | INFO     | hooks.lifespan:lifespan:26 - 正在获取用户服务地址...
+2025-08-10 17:01:09.603 | INFO     | utils.tll_consul:fetch_service_addresses:137 - 从Consul获取到用户服务地址: [{'host': '11.11.11.45', 'port': 46863}, {'host': '11.11.11.45', 'port': 57407}]
+2025-08-10 17:01:09.603 | INFO     | utils.tll_consul:fetch_service_addresses:142 -   服务 1: 11.11.11.45:46863
+2025-08-10 17:01:09.603 | INFO     | utils.tll_consul:fetch_service_addresses:142 -   服务 2: 11.11.11.45:57407
+2025-08-10 17:03:32.932 | INFO     | utils.tll_consul:unregister_service:118 - 服务注销成功
+2025-08-10 17:03:35.762 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 17:03:35.877 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 17:03:35.877 | INFO     | hooks.lifespan:lifespan:26 - 正在获取用户服务地址...
+2025-08-10 17:03:35.932 | INFO     | utils.tll_consul:fetch_service_addresses:137 - 从Consul获取到用户服务地址: [{'host': '11.11.11.45', 'port': 46863}, {'host': '11.11.11.45', 'port': 57407}]
+2025-08-10 17:03:35.932 | INFO     | utils.tll_consul:fetch_service_addresses:142 -   服务 1: 11.11.11.45:46863
+2025-08-10 17:03:35.932 | INFO     | utils.tll_consul:fetch_service_addresses:142 -   服务 2: 11.11.11.45:57407
+2025-08-10 17:03:43.257 | INFO     | services.user:user_service_addr:17 - 获取用户服务地址: 11.11.11.45:46863
+2025-08-10 17:04:12.386 | INFO     | services.user:user_service_addr:17 - 获取用户服务地址: 11.11.11.45:57407
+2025-08-10 17:04:24.558 | INFO     | services.user:user_service_addr:17 - 获取用户服务地址: 11.11.11.45:46863
+2025-08-10 17:05:23.025 | INFO     | utils.tll_consul:unregister_service:118 - 服务注销成功
+2025-08-10 17:05:23.566 | INFO     | utils.tll_consul:register_service:100 - 注册服务，IP: 11.11.11.45, Port: 8000
+2025-08-10 17:05:23.689 | INFO     | utils.tll_consul:register_service:112 - 服务注册到Consul成功
+2025-08-10 17:05:23.690 | INFO     | hooks.lifespan:lifespan:26 - 正在获取用户服务地址...
+2025-08-10 17:05:23.832 | INFO     | utils.tll_consul:fetch_service_addresses:142 - 从Consul获取到用户服务地址: [{'host': '11.11.11.45', 'port': 57407}]
+2025-08-10 17:05:33.258 | INFO     | services.user:user_service_addr:17 - 获取用户服务地址: 11.11.11.45:57407

@@ -35,3 +35,4 @@ AsyncSessionFactory = sessionmaker(
 Base = declarative_base()
 
 from . import user
+from . import address

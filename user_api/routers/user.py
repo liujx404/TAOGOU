@@ -21,19 +21,19 @@ async def get_smscode(mobile: str):
     code = "".join(random.sample(string.digits, 4))
     body = {'name': '推送助手', 'code': code, 'targets': mobile}
     
-    # async with aiohttp.ClientSession() as session:  # 创建异步会话
-    #     try:
-    #         async with session.post(
-    #             url='https://push.spug.cc/send/nbONk8gy6Kj34gXG',
-    #             json=body  
-    #         ) as response:
-    #             push_result = await response.json()
-    #             print(f"推送结果: {push_result}")
+    async with aiohttp.ClientSession() as session:  # 创建异步会话
+        try:
+            async with session.post(
+                url='https://push.spug.cc/send/nbONk8gy6Kj34gXG',
+                json=body  
+            ) as response:
+                push_result = await response.json()
+                print(f"推送结果: {push_result}")
                 
-    #     except Exception as e:
-    #         return ResultModule(result=ResultEnum.FAILURE)
+        except Exception as e:
+            return ResultModule(result=ResultEnum.FAILURE)
 
-    print(code)
+    # print(code)
     await ttl_redis.set_sms_code(mobile, code)
     return ResultModule(result=ResultEnum.SUCCESS)
 
@@ -82,7 +82,14 @@ async def update_password(data: UpdatePasswordModel, user_id: int = Depends(auth
 @router.get('mine', response_model=UserModel)
 async def get_user_info(user_id: int = Depends(auth_handler.auth_access_dependency)):
     user = await user_service_client.get_user_by_id(user_id)
-    return user
+    return {
+        "id": user.id,
+        "mobile": user.mobile,
+        "username": user.username,
+        "avatar": user.avatar,
+        "is_active": user.is_active,
+        "is_staff": user.is_staff
+    }
 
 @router.put('/update/avatar', response_model=UpdatedAvatarModel)
 async def update_avatar(file: UploadFile, user_id: int = Depends(auth_handler.auth_access_dependency)):

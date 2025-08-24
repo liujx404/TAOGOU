@@ -1,5 +1,6 @@
 import grpc
 from protos import user_pb2_grpc, user_pb2
+from protos import address_pb2, address_pb2_grpc
 
 def test_create_user(stub):
     try:
@@ -86,10 +87,24 @@ def test_get_or_create_user(stub):
         print(e.code())
         print(e.details())
 
+def test_create_address(stub):
+    try:
+        request = address_pb2.CreateAddressRequest()
+        request.user_id = 1950920017818157056
+        request.realname = '张三'
+        request.mobile = '18824232312'
+        request.region = '广东省广州市天河区'
+        request.detail = '天河路123号'
+        response = stub.CreateAddress(request)
+        print(response)
+    except grpc.RpcError as e:
+        print(e.code())
+        print(e.details()) 
+
 def main():
     with grpc.insecure_channel('localhost:5001') as channel:
-        stub = user_pb2_grpc.UserStub(channel)
-        test_get_or_create_user(stub)
+        stub = address_pb2_grpc.AddressStub(channel)
+        test_create_address(stub)
 
 if __name__ == '__main__':
     main()

@@ -23,3 +23,14 @@ class UpdateUsernameModel(BaseModel):
 class UpdatePasswordModel(BaseModel):
     password: str = Field(..., min_length=6, max_length=20, description="密码长度为6-20位") 
 
+class CreateAddressModel(BaseModel):
+    realname: str = Field(..., min_length=1, max_length=50, description="收件人姓名")
+    mobile: str = Field(..., min_length=11, max_length=11, description="手机号必须为11位数字")
+    region: str = Field(..., min_length=1, max_length=100, description="省市区信息")
+    detail: str = Field(..., min_length=1, max_length=200, description="详细地址")
+
+class DeleteAddressModel(BaseModel):
+    id: str
+    
+class UpdateAddressModel(CreateAddressModel):
+    id: str

@@ -2,6 +2,7 @@ from . import Base
 import string
 import random
 from sqlalchemy import Column, BigInteger, String, Boolean, DateTime
+from sqlalchemy.orm import relationship
 from utils.snowflake.snowflake import Snowflake
 from settings import DATACENTER_ID, WORDER_ID
 from sqlalchemy_serializer import SerializerMixin
@@ -22,7 +23,7 @@ def generate_username():
 class User(Base, SerializerMixin):
     __tablename__ = 'user'
     #serialize_only = ('id', 'mobile')
-    serialize_rules = ('-password',)
+    serialize_rules = ('-password', "-addresses")
     id = Column(BigInteger, primary_key=True, default=generate_snow_flake_id)
     mobile = Column(String(20), unique=True, index=True)
     username = Column(String(20), default=generate_username)
