@@ -5,8 +5,8 @@ MYSQL_PASSWORD = "123"
 MYSQL_DATABASE = "tll_seckill_db"
 
 DB_URI = f"mysql+aiomysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DATABASE}?charset=utf8mb4"
-
-
+ALIPAY_APP_ID  = "9021000151641981"
+JWT_SECRET_KEY = "asdasfsfgtgdfgqfdcda"
 # 这个地方后续部署到服务器删， 可以用读取环境变量的形式
 DATACENTER_ID = 0
 WORDER_ID = 0
